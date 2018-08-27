@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.min.mapper.StudentMapper">
+    <resultMap id="BaseResultMap" type="com.min.entity.Student">
+        <id column="id" property="id"></id>
+        <result column="stu_name" property="stuName"></result>
+        <result column="stu_mobile" property="stuMobile"></result>
+        <result column="stu_number" property="stuNumber"></result>
+        <result column="create_time" property="createTime"></result>
+        <result column="role_id" property="roleId"></result>
+        <result column="par_mobile" property="parMobile"></result>
+        <result column="par_name" property="parName"></result>
+        <result column="is_delete" property="isDelete"></result>
+    </resultMap>
+
+    <sql id="base_column_list">
+        stu_name,stu_mobile,stu_number,create_time,par_mobile,par_name
+    </sql>
+
+    <insert id="insertStudent" parameterType="student">
+        insert into tb_student (stu_name,stu_mobile,stu_number,par_mobile,par_name)
+        values
+        (#{stuName},#{stuMobile},#{stuNumber},#{parMobile},#{parName})
+    </insert>
+
+    <!-- 拼接 -->
+    <insert id="saveStudent" parameterType="student">
+        insert into tb_student
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+        <if test="password != null">
+                password,
+            </if>
+            <if test="stuName != null">
+                stu_name,
+            </if>
+            <if test="stuMobile">
+                stu_mobile,
+            </if>
+            <if test="stuNumber">
+            stu_number,
+            </if>
+            <if test="roleId">
+            role_id,
+            </if>
+            <if test="parMobile">
+            par_mobile,
+            </if>
+            <if test="parName">
+            par_name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="password != null">#{password},</if>
+        <if test="stuName != null">#{stuName},</if>
+        <if test="stuMobile != null">#{stuMobile},</if>
+        <if test="stuNumber!= null">#{stuNumber},</if>
+        <if test="roleId !=null">#{roleId},</if>
+        <if test="parMobile != null">#{parMobile},</if>
+        <if test="parName !=null">#{parName},</if>
+        </trim>
+    </insert>
+
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        delete from tb_student
+        where id = #{id}
+    </delete>
+
+    <update id="updateByPrimarKeySelective" parameterType="student">
+        update tb_student
+        <set>
+            <if test="stuName ! = null">
+                stu_name = #{stuName}
+            </if>
+            <if test="password ! =null">
+                password = #{password}
+            </if>
+            <if test="stuMobile ! = null">
+                stu_mobile = #{stuMobile}
+            </if>
+        </set>
+    </update>
+
+    <update id="updateByprimaryKey">
+    update tb_student
+    set
+    stu_name = #{stuName}
+    password = #{password}
+    stu_mobile = #{stuMobile}
+
+    </update>
+
+    <select id="findSomeColumn" resultMap="BaseResultMap">
+        select
+        <include refid="base_column_list" />
+        from tb_student
+    </select>
+
+    <select id="findAllStudent" resultMap="BaseResultMap">
+        select * from tb_student
+    </select>
+
+    <select id="findAllStudentPage" resultMap="BaseResultMap" resultType="Student">
+        select * from tb_student
+    </select>
+
+
+</mapper>
