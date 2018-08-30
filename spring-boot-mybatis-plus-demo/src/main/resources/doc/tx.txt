@@ -1,0 +1,21 @@
+1、什么是事物的传播行为
+  事物的传播行为是用来描述一个事物的传播行为修饰的方法被嵌套另一事物方法时如何传播
+ * propagation-required：如果当前存在事物，就直接到当前事物中运行,没有则其一个新的事物
+ * propagation-support：支持当前事物,没有事物就不在事物中运行
+ * propagation-required-new:事物存在就将当前事物挂起，创建一个新的事物。
+ * propagation_mandatory：支持当前事物,没有就抛出异常
+ * propagation_not_supported：以非事物的方式执行,如果当前事物存在,则将当前事物挂起。
+ * propagation_never：以非事物的方式执行,如果当前存在事物存在，就抛出异常。
+2、事物的属性 acid
+
+3、验证
+https://www.cnblogs.com/icenter/p/5279728.html
+https://baijiahao.baidu.com/s?id=1593192556844228644&wfr=spider&for=pc
+https://blog.csdn.net/it_wangxiangpan/article/details/24180085
+  
+  
+4、对于@Mapper与@MapperScan("")的关系
+如果在应用程序上没有使用@MapperScan注解 进行扫描将需要在每个应用上@Mapper注解,如果使用了需要指明扫描路径
+
+
+

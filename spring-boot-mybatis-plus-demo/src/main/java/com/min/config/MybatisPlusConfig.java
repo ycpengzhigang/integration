@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
 
-@MapperScan("com.min.mapper")
+//@MapperScan("com.min.mapper")
 @Configuration
 public class MybatisPlusConfig {
 	/**

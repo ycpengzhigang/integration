@@ -1,26 +1,23 @@
 package com.min.facade;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.min.entity.Book;
+import com.min.entity.User;
 import com.min.service.BookService;
 import com.min.service.UserService;
 
 public class ServiceFacade {
+	
+	@Autowired
 	private BookService bs;  
+	
+	@Autowired
     private UserService us;  
-    public BookService getBs() {  
-        return bs;  
-    }  
-    public void setBs(BookService bs) {  
-        this.bs = bs;  
-    }  
-    public UserService getUs() {  
-        return us;  
-    }  
-    public void setUs(UserService us) {  
-        this.us = us;  
-    }  
+	
       
-    public void addUserBook()throws Exception{  
-        bs.addBook();  
-        us.addUser();  
+    public void addUserBook(Book book, User user)throws Exception{  
+        bs.addBook(book);  
+        us.addUser(book,user);  
     }  
 }
