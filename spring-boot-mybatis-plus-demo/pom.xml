@@ -4,7 +4,7 @@
 	<groupId>com.minle</groupId>
 	<artifactId>spring-mybatis-plus-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	
+
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<!-- mysql 驱动 -->
@@ -18,79 +18,100 @@
 		<!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
 		<!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
 		<dependency>
-		    <groupId>com.alibaba</groupId>
-		    <artifactId>druid</artifactId>
-		    <version>1.1.9</version>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>1.1.9</version>
 		</dependency>
 
 		<!-- mybatis的orm插件 -->
-	    <!-- mybatis-plus 自动的维护了mybatis以及mybatis-spring的依赖，在springboot中这三者不能同时的出现，避免版本的冲突 -->
+		<!-- mybatis-plus 自动的维护了mybatis以及mybatis-spring的依赖，在springboot中这三者不能同时的出现，避免版本的冲突 -->
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatisplus-spring-boot-starter</artifactId>
 			<version>1.0.1</version>
 		</dependency>
-		
-		<!-- mybatisplus-spring-boot-starter1.4.0版本太高会出现异常  故此注释掉-->
-		<!-- <dependency>
-			<groupId>com.baomidou</groupId>
-			<artifactId>mybatis-plus</artifactId>
-			<version>2.0.7</version>
-		</dependency> -->
-		
+
+		<!-- mybatisplus-spring-boot-starter1.4.0版本太高会出现异常 故此注释掉 -->
+		<!-- <dependency> <groupId>com.baomidou</groupId> <artifactId>mybatis-plus</artifactId> 
+			<version>2.0.7</version> </dependency> -->
+
 		<!-- 日记 -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>1.7.7</version>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-core -->
 		<dependency>
-		    <groupId>ch.qos.logback</groupId>
-		    <artifactId>logback-core</artifactId>
-		    <version>1.2.3</version>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>1.2.3</version>
 		</dependency>
-		
-		<dependency>  
-		    <groupId>ch.qos.logback</groupId>  
-		    <artifactId>logback-classic</artifactId>  
-		    <version>1.2.3</version>  
-		</dependency> 
-		
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
+		</dependency>
+
 		<!-- logback-access访问模块与Servlet容器集成提供通过Http来访问日志的功能。 -->
-		<dependency>  
-		    <groupId>ch.qos.logback</groupId>  
-		    <artifactId>logback-access</artifactId>  
-		    <version>1.2.3</version>  
-		</dependency>   
-		
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-access</artifactId>
+			<version>1.2.3</version>
+		</dependency>
+
 		<!-- web -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 			<version>1.4.1.RELEASE</version>
 			<exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		<dependency>
-		    <groupId>org.projectlombok</groupId>
-		    <artifactId>lombok</artifactId>
-		    <version>1.16.4</version>
-		    <scope>provided</scope>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.4</version>
+			<scope>provided</scope>
 		</dependency>
-		
-		<!-- 这里解决找不到factory工厂的异常  https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+
+		<!-- 这里解决找不到factory工厂的异常 https://mvnrepository.com/artifact/commons-logging/commons-logging -->
 		<dependency>
-		    <groupId>commons-logging</groupId>
-		    <artifactId>commons-logging</artifactId>
-		    <version>1.1.3</version>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.3</version>
 		</dependency>
+
+		<!-- 测试依赖 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<version> 1.5.1.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>4.3.6.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version> 4.12</version>
+		</dependency>
+
+		<!-- 加入切面aop -->
+		<dependency>  
+            <groupId>org.springframework.boot</groupId>  
+            <artifactId>spring-boot-starter-aop</artifactId>  
+            <version>1.4.1.RELEASE</version>
+        </dependency>  
 	</dependencies>
 </project>
