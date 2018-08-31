@@ -1,6 +1,7 @@
 package com.min.service.impl;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
@@ -30,12 +31,17 @@ public class BookServiceImpl extends ServiceImpl<BookMapper,Book> implements Boo
 //	}
 
 	@Override
-	@Transactional
+	@Transactional(propagation =Propagation.MANDATORY )
 	public void addBook(Book book) {
 		baseMapper.insert(book);
 //		throw new RuntimeException();
 	}
 
+	
+	public <T> T get(T t){
+		return t;
+	}
+	
 	
 
 }
