@@ -18,4 +18,11 @@ https://blog.csdn.net/it_wangxiangpan/article/details/24180085
 如果在应用程序上没有使用@MapperScan注解 进行扫描将需要在每个应用上@Mapper注解,如果使用了需要指明扫描路径
 
 
+5、切面的使用
+https://blog.csdn.net/zhengchao1991/article/details/53391244
 
+5、事物的实现原理
+http://blog.51cto.com/netpeak/1895393
+
+6、DataSourceTransactionManager讲解
+https://blog.csdn.net/chjttony/article/details/6538452

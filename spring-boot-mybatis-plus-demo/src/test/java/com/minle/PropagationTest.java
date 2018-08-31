@@ -14,6 +14,7 @@ import com.min.entity.User;
 import com.min.mapper.BookMapper;
 import com.min.mapper.UserMapper;
 import com.min.service.BookService;
+import com.min.service.UserService;
 @RunWith(SpringRunner.class)  // 这里相当于SpringJUnit4ClassRunner.class  SpringRunner 是其子类
 // 在springboot1.4.1以前的版本时候，网上用如下加载方式(这个方式笔者没试过，因为是aliyun的依赖库1.4.1以前的已经不支持了) @SpringApplicationConfiguration(classes = SpringBootSampleApplication.class)
 // 或者使用@ContextConfiguration
@@ -29,6 +30,10 @@ public class PropagationTest {
 	
 	@Autowired
 	private BookService bookService;
+	
+	@Autowired
+	private UserService userService;
+	
 	
 	
 	@Test
@@ -100,6 +105,20 @@ public class PropagationTest {
 //			
 //		}).start();
 	}
+	
+	
+	@Test
+	public void testAddUser(){
+		Book book = new Book();
+		book.setId(1);
+		book.setName("悲惨的世界");
+		User user = new User();
+		user.setId(1);
+		user.setName("drivid");
+		userService.addUser(book, user);
+	}
+	
+	
 	
 	
 	
