@@ -19,10 +19,19 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements Use
 	private BookService bs;
 
 	@Transactional
-	public void addUser(Book book, User user) {
-		bs.addBook(book);
+	public void addUserPropagationMandatory(Book book, User user) {
+		bs.addBookPropagationMandatory(book);
 		// 插入一个用户
 		baseMapper.insert(user);
+	}
+
+	@Override
+	@Transactional(rollbackFor = RuntimeException.class)
+	public void addUserPropagationRequired(Book book, User user) {
+		// 插入一个用户
+		baseMapper.insert(user);
+		
+		bs.addBookPropagationRequired(book);
 	}
 
 }

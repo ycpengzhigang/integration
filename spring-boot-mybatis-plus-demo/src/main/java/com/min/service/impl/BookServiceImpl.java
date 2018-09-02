@@ -31,17 +31,24 @@ public class BookServiceImpl extends ServiceImpl<BookMapper,Book> implements Boo
 //	}
 
 	@Override
-	@Transactional(propagation =Propagation.MANDATORY )
+	@Transactional
 	public void addBook(Book book) {
 		baseMapper.insert(book);
 //		throw new RuntimeException();
 	}
 
-	
-	public <T> T get(T t){
-		return t;
+	@Override
+	@Transactional(propagation =Propagation.MANDATORY )
+	public void addBookPropagationMandatory(Book book) {
+		baseMapper.insert(book);
+//		throw new RuntimeException();
 	}
-	
-	
+
+	@Override
+	@Transactional(propagation =Propagation.NESTED,rollbackFor = RuntimeException.class )
+	public void addBookPropagationRequired(Book book) {
+		baseMapper.insert(book);
+		throw new RuntimeException();
+	}
 
 }
