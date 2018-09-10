@@ -18,6 +18,6 @@ public class ServiceFacade {
       
     public void addUserBook(Book book, User user)throws Exception{  
         bs.addBook(book);  
-        us.addUser(book,user);  
+        us.addUserPropagationMandatory(book,user);  
     }  
 }

@@ -6,6 +6,7 @@
  * propagation_mandatory：支持当前事物,没有就抛出异常
  * propagation_not_supported：以非事物的方式执行,如果当前事物存在,则将当前事物挂起。
  * propagation_never：以非事物的方式执行,如果当前存在事物存在，就抛出异常。
+ * PROPAGATION_NESTED -- 如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则进行与PROPAGATION_REQUIRED类似的操作。
 2、事物的属性 acid
 
 3、验证

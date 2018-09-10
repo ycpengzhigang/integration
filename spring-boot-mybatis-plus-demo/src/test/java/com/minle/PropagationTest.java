@@ -107,16 +107,32 @@ public class PropagationTest {
 	}
 	
 	
-	@Test
-	public void testAddUser(){
+	@Test 
+	// 验证事物的传播行为Propagation.Mandatory
+	public void testPropagationMandatory(){
 		Book book = new Book();
 		book.setId(1);
 		book.setName("悲惨的世界");
 		User user = new User();
 		user.setId(1);
 		user.setName("drivid");
-		userService.addUser(book, user);
+		userService.addUserPropagationMandatory(book, user);
 	}
+	
+	
+	@Test 
+	// 验证事物的传播行为Propagation.Required
+	public void testPropagationRequired(){
+		Book book = new Book();
+		book.setId(1);
+		book.setName("悲惨的世界");
+		User user = new User();
+		user.setId(1);
+		user.setName("drivid");
+		userService.addUserPropagationRequired(book, user);
+	}
+	
+	
 	
 	
 	

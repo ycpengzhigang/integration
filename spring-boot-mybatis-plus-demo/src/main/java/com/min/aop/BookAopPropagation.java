@@ -52,7 +52,7 @@ public class BookAopPropagation {
 		Method method = null;
 		try {
 			method = clazz.getMethod(methodName, parameterTypes);
-		} catch (NoSuchMethodException | SecurityException e) {
+		} catch (NoSuchMethodException e) {
 			e.printStackTrace();
 		}
 		
