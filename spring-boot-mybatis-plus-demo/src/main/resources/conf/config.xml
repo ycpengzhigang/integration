@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<!--RefinedAbstraction-->  
+    <className>com.min.pattern.bridge.JPGImage</className>   
+    <!--ConcreteImplementor-->  
+    <className>com.min.pattern.bridge.WindowsImp</className>  
+</config>
+
